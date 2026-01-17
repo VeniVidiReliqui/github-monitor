@@ -19,8 +19,12 @@ You'll need to generate a github token to access your account data. This works w
 ### Configure and Load App
 1. Setup your config file with WiFi credentials (2.4GHz only) and Github token & username
 2. Copy all py files to the pico with the following command from the project root:
-```
+```zsh
 mpremote fs cp *.py :.
+```
+```zsh
+# if mpremote is not installed, you can install it with brew:
+brew install mpremote
 ```
 3. Powercycle the Pico
 
@@ -31,12 +35,15 @@ mpremote fs cp *.py :.
 
 ## LED Feedback
 The upper left LED gives basic status information:
- - Red -> some error has ocurred:
+
+**Blue** -> Connecting to WiFi
+
+**Yellow** -> Fetching data from Github
+
+**Red** -> One of the following errors has ocurred:
   - failed to connect to WiFi (retries every 15s)
-  - failed to update the Unicorn Pack
-  - failed to fetch data
-- Blue -> Connecting to WiFi
-- Yellow -> Fetching data from Github
+  - failed to update the Unicorn Pack (retry flashing firmware)
+  - failed to fetch data (check internet connection)
 
 ## Additional Links:
 [Pimoroni Getting Started Page for Pico Unicorn Pack](https://learn.pimoroni.com/article/getting-started-with-pico)
